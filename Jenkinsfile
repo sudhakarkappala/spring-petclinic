@@ -7,8 +7,10 @@ pipeline{
 			}
 		}
 		stage('Build'){
-			sh "mvn clean package"
-			junit "**/target/surefire-reports/TEST-*.xml"
+			steps{
+				sh "mvn clean package"
+				junit "**/target/surefire-reports/TEST-*.xml"
+			}
 		}
 	}
 }
